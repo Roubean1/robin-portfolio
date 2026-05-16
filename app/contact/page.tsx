@@ -1,58 +1,52 @@
+"use client";
+
 import { ArrowRight, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/lib/i18n";
 
 const channels = [
   {
-    label: "Email",
-    value: "robin.tokarsky@gmail.com",
-    href: "mailto:robin.tokarsky@gmail.com",
-    note: "Fastest response",
+    value: "r.tokarsky@seznam.cz",
+    href: "mailto:r.tokarsky@seznam.cz",
     accent: "var(--accent)",
     icon: Mail,
   },
   {
-    label: "GitHub",
     value: "github.com/Roubean1",
     href: "https://github.com/Roubean1",
-    note: "Code and projects",
     accent: "var(--text)",
     icon: Github,
   },
   {
-    label: "LinkedIn",
     value: "linkedin.com/in/robintokarsky",
-    href: "https://linkedin.com/in/robintokarsky",
-    note: "Professional profile",
+    href: "https://cz.linkedin.com/in/robin-tokarsk%C3%BD-794546211",
     accent: "var(--accent-3)",
     icon: Linkedin,
   },
 ];
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
         <div className="page-kicker">
           <MessageCircle size={16} />
-          Contact
+          {t.contact.label}
         </div>
-        <h1 className="page-title">
-          Let&apos;s build something calm, useful, and polished.
-        </h1>
-        <p className="lede">
-          I am open to full-time roles, internships, and focused freelance projects.
-          Send the context, the problem, or the repo, and I will reply with a practical
-          next step.
-        </p>
+        <h1 className="page-title">{t.contact.title}</h1>
+        <p className="lede">{t.contact.copy}</p>
       </section>
 
       <section className="page-section compact">
         <div className="contact-grid">
-          {channels.map((channel) => {
+          {channels.map((channel, index) => {
             const Icon = channel.icon;
+            const copy = t.contact.channels[index];
             return (
               <a
-                key={channel.label}
+                key={copy.label}
                 href={channel.href}
                 target={channel.href.startsWith("http") ? "_blank" : undefined}
                 rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -61,10 +55,10 @@ export default function Contact() {
                 <span className="contact-icon" style={{ background: channel.accent }}>
                   <Icon size={21} />
                 </span>
-                <h2>{channel.label}</h2>
+                <h2>{copy.label}</h2>
                 <p>{channel.value}</p>
                 <span className="card-link">
-                  {channel.note} <ArrowRight size={16} />
+                  {copy.note} <ArrowRight size={16} />
                 </span>
               </a>
             );
@@ -74,8 +68,8 @@ export default function Contact() {
         <div className="availability-panel">
           <span className="status-dot" />
           <div>
-            <h2>Currently available</h2>
-            <p>Open to full-time positions, internships, and contract work starting ASAP.</p>
+            <h2>{t.contact.availableTitle}</h2>
+            <p>{t.contact.availableCopy}</p>
           </div>
         </div>
       </section>

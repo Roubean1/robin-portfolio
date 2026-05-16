@@ -1,22 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, FolderKanban } from "lucide-react";
 import Footer from "@/components/Footer";
-import { projects } from "@/lib/data";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Projects() {
+  const { t, projects } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
         <div className="page-kicker">
           <FolderKanban size={16} />
-          Projects
+          {t.projectsPage.label}
         </div>
-        <h1 className="page-title">Work shaped into case studies.</h1>
-        <p className="lede">
-          Thesis, internship work, school projects, and older personal builds. The range
-          is intentionally visible: AI systems, team products, graphics, backend APIs,
-          and classic web fundamentals.
-        </p>
+        <h1 className="page-title">{t.projectsPage.title}</h1>
+        <p className="lede">{t.projectsPage.copy}</p>
       </section>
 
       <section className="page-section compact">

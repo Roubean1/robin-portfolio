@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { GraduationCap, Layers3, Sparkles } from "lucide-react";
 import Footer from "@/components/Footer";
-import { education, experience, skills } from "@/lib/data";
+import { useLanguage } from "@/lib/i18n";
 
 export default function About() {
+  const { t, education, experience, skills } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
@@ -11,48 +15,30 @@ export default function About() {
           <div>
             <div className="page-kicker">
               <Sparkles size={16} />
-              Profile
+              {t.about.label}
             </div>
             <h1 className="page-title">
-              Robin <span className="accent-text">Tokarsky</span>
+              Robin <span className="accent-text">Tokarský</span>
             </h1>
-            <p className="lede">
-              Full-stack developer from Ostrava, currently finishing Informatics at
-              VSB-TUO. I like practical products, clear interfaces, and AI systems that
-              solve real user problems instead of just looking impressive in a demo.
-            </p>
+            <p className="lede">{t.about.intro}</p>
 
             <div className="content-copy" style={{ marginTop: "2rem" }}>
-              <p>
-                My Bachelor thesis is a voice-enabled 3D avatar backed by a full AI
-                pipeline: Whisper speech recognition, retrieval augmented generation,
-                language model responses, ElevenLabs voice output, and Three.js lipsync
-                with emotion-driven animation.
-              </p>
-              <p>
-                I have worked through three internships, contributed to an open-source
-                Slack polling app, and built projects across C, C++, PHP, React,
-                TypeScript, Python, OpenGL, and Firebase.
-              </p>
+              {t.about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="stat-row">
-              <div className="stat-card">
-                <strong>3</strong>
-                <span>internships</span>
-              </div>
-              <div className="stat-card">
-                <strong>6+</strong>
-                <span>portfolio projects</span>
-              </div>
-              <div className="stat-card">
-                <strong>B2</strong>
-                <span>English level</span>
-              </div>
+              {t.about.stats.map((stat) => (
+                <div key={stat.label} className="stat-card">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <aside className="profile-card" aria-label="Profile photo">
+          <aside className="profile-card" aria-label={t.about.profilePhoto}>
             <div className="profile-frame">
               <Image
                 src="/profile.jpg"
@@ -63,8 +49,8 @@ export default function About() {
               />
             </div>
             <div className="profile-caption">
-              <span>Ostrava, CZ</span>
-              <span>Open to work</span>
+              <span>{t.about.location}</span>
+              <span>{t.about.openToWork}</span>
             </div>
           </aside>
         </div>
@@ -75,9 +61,9 @@ export default function About() {
           <div>
             <div className="section-label">
               <Layers3 size={16} />
-              Skills
+              {t.about.skillsLabel}
             </div>
-            <h2>Stack I can actually ship with.</h2>
+            <h2>{t.about.skillsTitle}</h2>
           </div>
         </div>
 
@@ -102,9 +88,9 @@ export default function About() {
           <div>
             <div className="section-label">
               <Sparkles size={16} />
-              Experience
+              {t.about.experienceLabel}
             </div>
-            <h2>Internships and product work.</h2>
+            <h2>{t.about.experienceTitle}</h2>
           </div>
         </div>
 
@@ -134,9 +120,9 @@ export default function About() {
           <div>
             <div className="section-label">
               <GraduationCap size={16} />
-              Education
+              {t.about.educationLabel}
             </div>
-            <h2>Formal path and exchange semester.</h2>
+            <h2>{t.about.educationTitle}</h2>
           </div>
         </div>
 

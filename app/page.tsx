@@ -1,10 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Sparkles } from "lucide-react";
-import { projects } from "@/lib/data";
 import Footer from "@/components/Footer";
 import ParallaxHero from "@/components/ParallaxHero";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
+  const { t, projects } = useLanguage();
   const featured = projects.find((p) => p.featured)!;
   const recent = projects.filter((p) => !p.featured).slice(0, 3);
 
@@ -17,14 +20,11 @@ export default function Home() {
           <div>
             <div className="section-label">
               <Sparkles size={16} />
-              Featured work
+              {t.home.featuredLabel}
             </div>
-            <h2>One project as a full product system.</h2>
+            <h2>{t.home.featuredTitle}</h2>
           </div>
-          <p>
-            The portfolio now leans into tactile neumorphism: soft depth, raised controls,
-            and calm product surfaces instead of the previous dark cinematic scene.
-          </p>
+          <p>{t.home.featuredCopy}</p>
         </div>
 
         <div className="featured-grid">
@@ -45,7 +45,7 @@ export default function Home() {
               ))}
             </div>
             <span className="card-link">
-              View case study <ArrowRight size={17} />
+              {t.home.viewCaseStudy} <ArrowRight size={17} />
             </span>
           </Link>
 
@@ -85,12 +85,12 @@ export default function Home() {
           <div>
             <div className="section-label">
               <BriefcaseBusiness size={16} />
-              Recent projects
+              {t.home.recentLabel}
             </div>
-            <h2>Built across teams, classes, and side projects.</h2>
+            <h2>{t.home.recentTitle}</h2>
           </div>
           <Link href="/projects" className="btn-muted">
-            All projects <ArrowRight size={17} />
+            {t.home.allProjects} <ArrowRight size={17} />
           </Link>
         </div>
 
@@ -118,19 +118,16 @@ export default function Home() {
       <section className="page-section compact">
         <div className="bio-band">
           <div>
-            <div className="section-label">Profile</div>
-            <h2>Developer with product taste, AI curiosity, and practical delivery habits.</h2>
-            <p>
-              BSc Informatics at VSB-TUO, Erasmus at CTU Prague, three internships,
-              and a thesis that connects voice, retrieval, 3D interaction, and realtime UX.
-            </p>
+            <div className="section-label">{t.home.profileLabel}</div>
+            <h2>{t.home.bioTitle}</h2>
+            <p>{t.home.bioCopy}</p>
           </div>
           <div className="button-row" style={{ marginTop: 0 }}>
             <Link href="/about" className="btn-ghost">
-              Profile <ArrowRight size={17} />
+              {t.home.profile} <ArrowRight size={17} />
             </Link>
             <Link href="/contact" className="btn-primary">
-              Contact <ArrowRight size={17} />
+              {t.home.contact} <ArrowRight size={17} />
             </Link>
           </div>
         </div>

@@ -14,8 +14,10 @@ import {
   Volume2,
 } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function ParallaxHero() {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -60,23 +62,17 @@ export default function ParallaxHero() {
         <div>
           <div className="eyebrow">
             <Sparkles size={16} />
-            Full-stack developer
+            {t.hero.eyebrow}
           </div>
-          <h1 className="hero-title">
-            Tactile web apps with AI under the hood.
-          </h1>
-          <p className="hero-copy">
-            I build React, TypeScript, Python, and Three.js products that feel clear,
-            polished, and useful. Current focus: AI integrations, RAG pipelines, and
-            interfaces that make complex systems feel simple.
-          </p>
+          <h1 className="hero-title">{t.hero.title}</h1>
+          <p className="hero-copy">{t.hero.copy}</p>
 
           <div className="hero-actions">
             <Link href="/projects" className="btn-primary">
-              View projects <ArrowRight size={18} />
+              {t.hero.viewProjects} <ArrowRight size={18} />
             </Link>
             <Link href="/contact" className="btn-ghost">
-              <Mail size={18} /> Get in touch
+              <Mail size={18} /> {t.hero.contact}
             </Link>
             <Link
               href="https://github.com/Roubean1"
@@ -88,19 +84,13 @@ export default function ParallaxHero() {
             </Link>
           </div>
 
-          <div className="hero-meta" aria-label="Portfolio highlights">
-            <div className="metric-card">
-              <span className="metric-number">6+</span>
-              <span className="metric-label">projects across AI, web, and graphics</span>
-            </div>
-            <div className="metric-card">
-              <span className="metric-number">3</span>
-              <span className="metric-label">internships in real product teams</span>
-            </div>
-            <div className="metric-card">
-              <span className="metric-number">BSc</span>
-              <span className="metric-label">informatics, VSB-TUO</span>
-            </div>
+          <div className="hero-meta" aria-label={t.hero.highlightsLabel}>
+            {t.hero.metrics.map((metric) => (
+              <div key={metric.label} className="metric-card">
+                <span className="metric-number">{metric.number}</span>
+                <span className="metric-label">{metric.label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -110,17 +100,14 @@ export default function ParallaxHero() {
 
           <div className="dashboard-shell parallax-layer">
             <div className="dashboard-topbar">
-              <span>portfolio system</span>
+              <span>{t.hero.system}</span>
               <Code2 size={18} />
             </div>
 
             <div className="dashboard-grid">
               <div className="dashboard-card tall">
                 <h2 className="card-title">Voice RAG Avatar</h2>
-                <p className="mini-copy">
-                  Speech, retrieval, language model output, generated voice, lipsync,
-                  and emotion animation in one full-stack thesis.
-                </p>
+                <p className="mini-copy">{t.hero.thesisCopy}</p>
 
                 <div className="pipeline">
                   <div className="pipeline-step">
@@ -152,7 +139,7 @@ export default function ParallaxHero() {
 
               <div>
                 <div className="dashboard-card">
-                  <h2 className="card-title">Stack</h2>
+                  <h2 className="card-title">{t.hero.stackTitle}</h2>
                   <div className="stack-list" style={{ marginTop: 0 }}>
                     <span className="skill-pill">React</span>
                     <span className="skill-pill">Next.js</span>
@@ -162,7 +149,7 @@ export default function ParallaxHero() {
                 </div>
 
                 <div className="dashboard-card" style={{ marginTop: "0.9rem" }}>
-                  <h2 className="card-title">Signal</h2>
+                  <h2 className="card-title">{t.hero.signalTitle}</h2>
                   <div className="signal-bars">
                     <span style={{ height: "28%" }} />
                     <span style={{ height: "54%" }} />
@@ -179,18 +166,19 @@ export default function ParallaxHero() {
             <div className="contact-icon" style={{ background: "var(--accent-3)", marginBottom: "0.8rem" }}>
               <AudioLines size={20} />
             </div>
-            <h2 className="card-title">Open to work</h2>
-            <p className="mini-copy">Full-time roles, internships, and focused web projects.</p>
+            <h2 className="card-title">{t.hero.focusTitle}</h2>
+            <p className="mini-copy">{t.hero.focusCopy}</p>
           </div>
 
           <div className="code-tile parallax-layer">
             <h2 className="card-title">ship.tsx</h2>
             <p className="mini-copy">
-              product thinking
-              <br />
-              clean architecture
-              <br />
-              useful AI
+              {t.hero.codeLines.map((line) => (
+                <span key={line}>
+                  {line}
+                  <br />
+                </span>
+              ))}
             </p>
           </div>
         </div>
