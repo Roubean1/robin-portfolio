@@ -1144,6 +1144,165 @@ textarea {
   gap: 1rem;
 }
 
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.gallery-item {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  margin: 0;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius);
+  color: inherit;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 18px 18px 40px rgba(145, 157, 181, 0.45), -16px -16px 34px rgba(255, 255, 255, 0.95);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 7px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-inset);
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.1rem;
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(12px);
+}
+
+.lightbox-toolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.controls-hidden .lightbox-toolbar {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.lightbox-counter {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.lightbox-counter span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lightbox-counter span:last-child,
+.lightbox-zoom {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.78rem;
+}
+
+.lightbox-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.lightbox-stage {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--radius);
+}
+
+.lightbox-frame {
+  min-width: 0;
+  margin: 0;
+}
+
+.lightbox-frame img {
+  display: block;
+  max-width: min(92vw, 1500px);
+  max-height: calc(100vh - 8.5rem);
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: #f7f9fc;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  transform-origin: center center;
+  transition: transform 0.16s ease;
+}
+
+.lightbox-control,
+.lightbox-return {
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius);
+  color: white;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.lightbox-control:hover,
+.lightbox-return:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.lightbox-control {
+  width: 42px;
+  height: 42px;
+}
+
+.lightbox-return {
+  display: inline-flex;
+  gap: 0.55rem;
+  min-height: 42px;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
 .prev-next {
   display: flex;
   justify-content: space-between;
@@ -1293,7 +1452,8 @@ textarea {
   }
 
   .project-grid,
-  .contact-grid {
+  .contact-grid,
+  .project-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1369,7 +1529,8 @@ textarea {
 
   .project-grid,
   .contact-grid,
-  .skills-grid {
+  .skills-grid,
+  .project-gallery {
     grid-template-columns: 1fr;
   }
 
@@ -1401,6 +1562,42 @@ textarea {
   .btn-ghost,
   .btn-muted {
     width: 100%;
+  }
+
+  .gallery-lightbox {
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: 0.8rem;
+  }
+
+  .lightbox-toolbar {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .lightbox-controls {
+    justify-content: stretch;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .lightbox-control {
+    width: 100%;
+  }
+
+  .lightbox-zoom {
+    display: inline-grid;
+    place-items: center;
+    min-height: 42px;
+  }
+
+  .lightbox-return {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .lightbox-frame img {
+    max-width: 96vw;
+    max-height: calc(100vh - 10rem);
   }
 }
 

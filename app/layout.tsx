@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Robin Tokarsky - Technical Portfolio",
   description:
     "Technical portfolio and CV overview of Robin Tokarsky: projects, internships, education, React, TypeScript, Python, FastAPI, Three.js, and AI integrations.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Robin Tokarsky - Technical Portfolio",
     description: "Projects, internships, education, full-stack development, and AI integrations.",
