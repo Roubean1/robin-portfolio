@@ -651,27 +651,27 @@ export const education: Record<"en" | "cz", Education[]> = {
     {
       period: "2019 - 2023",
       degree: "High School Diploma - ICT & Programming",
-      school: "SSEI Ostrava",
+      school: "SPSEI Ostrava",
       meta: "Graduation thesis: mojezahrada.cz e-shop",
     },
   ],
   cz: [
     {
       period: "2023 - současnost",
-      degree: "BSc v Informatice",
+      degree: "Bc. v Informatice",
       school: "VŠB - Technická univerzita Ostrava",
       meta: "FEI - plánované pokračování na magisterské studium na VŠB-TUO",
     },
     {
       period: "Září 2024 - leden 2025",
-      degree: "BSc v Informatice",
+      degree: "Bc. v Informatice",
       school: "České vysoké učení technické v Praze (ČVUT FIT)",
       meta: "Fakulta informačních technologií - krátkodobé studium před pokračováním na VŠB-TUO",
     },
     {
       period: "2019 - 2023",
       degree: "Maturita - ICT a programování",
-      school: "SSEI Ostrava",
+      school: "SPSEI Ostrava",
       meta: "Maturitní práce: mojezahrada.cz e-shop",
     },
   ],
