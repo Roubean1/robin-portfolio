@@ -38,6 +38,7 @@ const sharedStack = {
   garden: ["PHP", "MySQL", "HTML", "CSS"],
   fitPrep: ["JavaScript", "HTML", "CSS", "Practice tests", "Git"],
   portfolio: ["Next.js", "React", "TypeScript", "CSS", "Responsive UI"],
+  raynet: ["React", "TypeScript", "Vite", "CSS Modules", "Express", "JSON data", "Pair programming"],
 };
 
 export const projects: Record<"en" | "cz", Project[]> = {
@@ -257,6 +258,37 @@ export const projects: Record<"en" | "cz", Project[]> = {
         { src: "/robin_portfolio/robin_portfolio_5.png", alt: "Robin portfolio responsive layout" },
       ],
     },
+    {
+      slug: "raynet-dev-jam",
+      index: "09",
+      name: "Raynet Dev Jam",
+      type: "internship",
+      typeLabel: "Dev Jam @ Raynet",
+      short:
+        "Two-hour pair-programming challenge for a software developer hiring event; I owned the React frontend while my teammate handled the backend.",
+      description: [
+        "Small TypeScript project created during Raynet's Dev Jam, a hiring-oriented coding challenge for a software developer role. In a pair, we had two hours to build a web application for an assigned topic.",
+        "I focused on the frontend: React 18, TypeScript, Vite, CSS Modules, layout, interaction flow, and connecting the UI to the API. My teammate worked on the Express + TypeScript backend and JSON data layer.",
+        "The project used a workspace structure with separate frontend, backend, and data folders. The backend exposed a simple Express API and the frontend ran as a Vite app.",
+      ],
+      stack: sharedStack.raynet,
+      github: "https://github.com/Roubean1/raynet-dev",
+      highlights: [
+        "Two-hour pair-programming challenge",
+        "Frontend ownership in React, TypeScript, and Vite",
+        "UI inspired by the provided Figma design",
+        "Separate frontend and backend workspace structure",
+      ],
+      gallery: [
+        { src: "/raynet_dev/raynet_dev_1.png", alt: "Raynet Dev Jam application screen" },
+        { src: "/raynet_dev/raynet_dev_2.png", alt: "Raynet Dev Jam dashboard view" },
+        { src: "/raynet_dev/raynet_dev_3.png", alt: "Raynet Dev Jam form flow" },
+        { src: "/raynet_dev/raynet_dev_4.png", alt: "Raynet Dev Jam detail view" },
+        { src: "/raynet_dev/raynet_dev_5.png", alt: "Raynet Dev Jam responsive layout" },
+        { src: "/raynet_dev/raynet_dev_6.png", alt: "Raynet Dev Jam data view" },
+        { src: "/raynet_dev/raynet_dev_7.png", alt: "Raynet Dev Jam final screen" },
+      ],
+    },
   ],
   cz: [
     {
@@ -469,6 +501,37 @@ export const projects: Record<"en" | "cz", Project[]> = {
         { src: "/robin_portfolio/robin_portfolio_3.png", alt: "Detail projektu Robin portfolio" },
         { src: "/robin_portfolio/robin_portfolio_4.png", alt: "Profilová stránka Robin portfolio" },
         { src: "/robin_portfolio/robin_portfolio_5.png", alt: "Responzivní layout Robin portfolio" },
+      ],
+    },
+    {
+      slug: "raynet-dev-jam",
+      index: "09",
+      name: "Raynet Dev Jam",
+      type: "internship",
+      typeLabel: "Dev Jam @ Raynet",
+      short:
+        "Dvouhodinová párová výzva v rámci náboru na software developera; já měl na starosti frontend aplikace.",
+      description: [
+        "Menší TypeScript projekt vytvořený na Raynet Dev Jamu, náborovém klání na pozici software developera. Ve dvojici jsme měli za dvě hodiny postavit webovou aplikaci na zadané téma.",
+        "Moje část byl frontend: React 18, TypeScript, Vite, CSS Modules, rozložení stránky, interakce a napojení UI na API. Kolega řešil Express + TypeScript backend a JSON datovou vrstvu.",
+        "Projekt měl oddělenou strukturu pro frontend, backend a data. Frontend běžel jako Vite aplikace, backend jako Express API server.",
+      ],
+      stack: sharedStack.raynet,
+      github: "https://github.com/Roubean1/raynet-dev",
+      highlights: [
+        "Dvouhodinová párová výzva",
+        "Zodpovědnost za frontend v Reactu, TypeScriptu a Vite",
+        "UI inspirované dodaným Figma designem",
+        "Oddělená struktura frontendu, backendu a dat",
+      ],
+      gallery: [
+        { src: "/raynet_dev/raynet_dev_1.png", alt: "Obrazovka aplikace Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_2.png", alt: "Dashboard Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_3.png", alt: "Formulářový flow Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_4.png", alt: "Detail v aplikaci Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_5.png", alt: "Responzivní layout Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_6.png", alt: "Datový pohled Raynet Dev Jam" },
+        { src: "/raynet_dev/raynet_dev_7.png", alt: "Finální obrazovka Raynet Dev Jam" },
       ],
     },
   ],

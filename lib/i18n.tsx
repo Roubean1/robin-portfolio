@@ -42,7 +42,7 @@ const dictionary = {
       contact: "Get in touch",
       highlightsLabel: "Portfolio highlights",
       metrics: [
-        { number: "8", label: "projects across AI, web, and graphics" },
+        { number: "9", label: "projects across AI, web, and graphics" },
         { number: "3", label: "internships in real product teams" },
         { number: "BSc", label: "informatics, VSB-TUO" },
       ],
@@ -81,7 +81,7 @@ const dictionary = {
       ],
       stats: [
         { value: "3", label: "internships" },
-        { value: "6+", label: "portfolio projects" },
+        { value: "9", label: "portfolio projects" },
         { value: "B2", label: "English level" },
       ],
       profilePhoto: "Profile photo",
@@ -150,7 +150,7 @@ const dictionary = {
       contact: "Ozvat se",
       highlightsLabel: "Vybrané body portfolia",
       metrics: [
-        { number: "8", label: "projektů napříč AI, webem a grafikou" },
+        { number: "9", label: "projektů napříč AI, webem a grafikou" },
         { number: "3", label: "stáže v reálných produktových týmech" },
         { number: "BSc", label: "informatika, VŠB-TUO" },
       ],
@@ -189,7 +189,7 @@ const dictionary = {
       ],
       stats: [
         { value: "3", label: "stáže" },
-        { value: "8", label: "portfolio projektů" },
+        { value: "9", label: "portfolio projektů" },
         { value: "B2", label: "úroveň angličtiny" },
       ],
       profilePhoto: "Profilová fotka",
